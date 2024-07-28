@@ -3,7 +3,8 @@ from typing import Optional, List
 import requests
 import json
 from fastapi.middleware.cors import CORSMiddleware
-
+from langchain_chroma import Chroma
+from langchain_ai21 import AI21Embeddings
 
 
 QUESTION_JSON_FORMAT = """
@@ -162,3 +163,9 @@ def get_soal(topic: str, questiontotal: int, language: str):
         return get_indonesian_questions_json(topic, questiontotal)
     if language == "Bahasa Inggris":
       return get_english_questions_json(topic, questiontotal)
+
+@app.get("/test")
+def test():
+    db3 = Chroma(persist_directory="./chromadb", embedding_function=AI21Embeddings(api_key="xlDvCjQch5NcZyokpRheEvc3l8QfEU4j"))
+    docs = db3.similarity_search("Unsur-Unsur Berita")
+    return docs[0].page_content
