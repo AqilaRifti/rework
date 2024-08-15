@@ -42,7 +42,7 @@ def get_english_questions_json(question_topic: str, question_count: int):
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": "Bearer noHEU8RG9UdiN5kMHxmyKjxvOb6kaURXwy8qxbcmzKaYHuCn"
+        "Authorization": "Bearer pfS623hAge5hEPUKymOYIGaWYIO7ruiuLk8EDIlvwGWJGXGp"
     }
     resp = requests.request("POST", url, headers=headers, data=json.dumps(payload))
     data = json.loads(resp.json()["choices"][0]["message"]["content"])
@@ -72,7 +72,7 @@ def get_indonesian_questions_json(question_topic: str, question_count: int):
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": "Bearer noHEU8RG9UdiN5kMHxmyKjxvOb6kaURXwy8qxbcmzKaYHuCn"
+        "Authorization": "Bearer pfS623hAge5hEPUKymOYIGaWYIO7ruiuLk8EDIlvwGWJGXGp"
     }
     resp = requests.request("POST", url, headers=headers, data=json.dumps(payload))
     data = json.loads(resp.json()["choices"][0]["message"]["content"])
